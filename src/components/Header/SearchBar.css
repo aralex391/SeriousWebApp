@@ -1,0 +1,12 @@
+#InputField {
+    display: inline-block;
+    padding-right: 0.2em;
+}
+
+#SearchButton {
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.SearchBar{
+}

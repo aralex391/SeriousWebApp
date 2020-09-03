@@ -1,0 +1,26 @@
+En scrollbar produktshowcase, med bildlänkar till produkter och en "see more" länk
+
+En banner med news of the day? Också scrollbar
+
+databas
+	Lägga in nya produkter i databas
+	Redigera produktinformation
+	Ta bort produkter
+
+En bra plattform för hantering av databasen
+
+Search results sida med filterssystem.
+	Sök i header kan visa först förslag på taggsökning sen produktförslag med bilder
+
+"see more" leder till söksidan med applicerade filter
+
+Betalsystem(helst en säker sådan)
+	Checkout system
+
+Kontaktsida
+
+
+Extras:
+	Kundrecension på produkter
+	Medlemsystem
+	Kundtjänst(chatt)	
