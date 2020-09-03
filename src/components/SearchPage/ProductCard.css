@@ -1,0 +1,32 @@
+.ProductCard{
+    margin: 0.2em;
+    border: solid;
+    border-color: lightgray;
+    display: inline-block;
+}
+
+#PriceTag{
+    font-size: larger;
+    display: inline-block;
+    padding-right: 1em;
+}
+
+#ShoppingContainer{
+    padding: 1em;
+}
+
+#ProductName{
+    font-size: medium;
+    white-space: pre-wrap;
+}
+
+#BuyButton {
+    font-size: medium;
+    display: inline-block;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#ProductImage{
+    height: 20vmin;   
+}
