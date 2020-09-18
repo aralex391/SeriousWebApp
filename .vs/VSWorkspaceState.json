@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\AdminPage",
+    "\\src\\components\\AdminPage\\DeleteProductPage",
     "\\src\\components\\Header",
     "\\src\\components\\SearchPage"
   ],

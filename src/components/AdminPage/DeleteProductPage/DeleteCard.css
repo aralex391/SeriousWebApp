@@ -1,0 +1,8 @@
+#DeleteImage{
+    height: 10vmin;
+}
+
+.DeleteCard{
+    display: inline-block;
+    margin: 0.5em;
+}

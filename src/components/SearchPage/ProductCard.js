@@ -3,32 +3,28 @@ import logo from '../../logo.svg';
 
 import './ProductCard.css'
 
-var productName = 'Rotate thingy \n React';
-var price = 2994;
-var stock = 2;
-
-function ProductCard() {
+function ProductCard(props) {
     return (
         <div className='ProductCard'>
             <img src={logo} className="App-logo" id='ProductImage' alt='logo' />
             <div id='ShoppingContainer'>
                 <div>
-                    <a id='ProductName' href='http://vecka.nu'>{productName}</a>
+                    <a id='ProductName' href='http://vecka.nu'>{props.name}</a>
                 </div>
-                <p id='PriceTag'>{price} kr</p>
+                <p id='PriceTag'>{props.price} kr</p>
                 {
-                    inStock()         
+                    inStock(props.stock)
                 }
             </div>
         </div>
         );
 }
 
-function inStock() {
+function inStock(stock) {
     if (stock >= 1) {
         return <button id='BuyButton'>Add to cart</button>;
     } else {
-        return <p>Out of Stock!</p>;
+        return <p>Not in stock!</p>;
     }
 }
 

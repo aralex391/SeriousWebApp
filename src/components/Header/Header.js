@@ -6,11 +6,11 @@ import UserContainer from './UserContainer';
 import SearchBar from './SearchBar';
 import Cart from './Cart';
 
-function Header() {
+function Header(props) {
     return (
         <div className='Header'>
             <a id='HomeLink' href='http://localhost:3000/'>Serious App</a>
-            <SearchBar />
+            <SearchBar searchQuery={props.searchQuery} />
             <UserContainer />
             <Cart />
         </div>
