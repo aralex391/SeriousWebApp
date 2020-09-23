@@ -4,10 +4,11 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\AdminPage",
-    "\\src\\components\\AdminPage\\DeleteProductPage",
+    "\\src\\components\\AdminPage\\AdminComponents",
+    "\\src\\components\\CommonComponents",
     "\\src\\components\\Header",
     "\\src\\components\\SearchPage"
   ],
-  "SelectedNode": "\\src\\components\\SearchPage\\SearchPage.js",
+  "SelectedNode": "\\src\\components\\AdminPage\\EditProductPage.js",
   "PreviewInSolutionExplorer": false
 }

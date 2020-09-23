@@ -22,7 +22,7 @@ export default class App extends React.Component {
     render () {
         return (
             <div className="App">
-                <Header searchQuery={this.setSearchQuery} />
+                <Header setSearchQuery={this.setSearchQuery} />
                 <SearchPage searchQuery={this.state.searchQuery} />
                 <AdminPage />
                 <header className="App-header">

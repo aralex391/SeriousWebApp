@@ -44,7 +44,7 @@ export default class SearchPage extends React.Component {
         return (
             <div className='SearchPage' >
                 {products.map(product => (
-                    <ProductCard key={product.id} name={product.name} price={product.price} stock={product.stock} />
+                    <ProductCard key={product.id} product={product} cardFunction={this.props.cardFunction}/>
                 ))}
             </div >
         );

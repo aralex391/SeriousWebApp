@@ -1,6 +1,7 @@
 import React from 'react'
-import AddProductForm from './AddProductForm'
-import DeleteProductPage from './DeleteProductPage/DeleteProductPage'
+import AddProductPage from './AddProductPage'
+import DeleteProductPage from './DeleteProductPage'
+import EditProductPage from './EditProductPage'
 
 export default class AdminPage extends React.Component{
 	constructor(props) {
@@ -13,9 +14,12 @@ export default class AdminPage extends React.Component{
 	render() {
 		return (
 			<div className='AdminPage'>
-				<AddProductForm />
-				<p>Don't be rude</p>
+				<p>Add Product Page</p>
+				<AddProductPage />
+				<p>Delete Product Page</p>
 				<DeleteProductPage />
+				<p>Edit Product Page</p>
+				<EditProductPage />
 			</div>
 			)
 	}
