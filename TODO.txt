@@ -4,12 +4,28 @@ En banner med news of the day? Också scrollbar
 
 Adminpage
 	Authentication
-	Redigera produktinformation
 
 Fixa så att man kan ha egna bilder på produkter(Frontend och backend)
 
-Search results sida med filterssystem.
-	Sök i header kan visa först förslag på taggsökning sen produktförslag med bilder
+Search results sida
+	Preview search inspirerad av Ica/Inet(Visa taggar och sen produkter) -frontend
+		returnera två listor? en med taggar, en med products
+	partial search -backend
+	like search? -backend
+	Ändra vy? -frontend
+	sortera på -frontend
+		bokstavsordning
+		pris fallande och stigande
+	Loading animation? - frontend
+
+Filtersystem - backend
+	Plocka ut taggar från produkterna och filtrera utefter dem 
+	filtrera efter kategori
+	filtrera efter speciella unika fields
+
+Navigation bar
+	kanske inspirerat av webhallen.
+	genereras av en get?
 
 "see more" leder till söksidan med applicerade filter
 
@@ -22,3 +38,4 @@ Extras:
 	Kundrecension på produkter
 	Medlemsystem
 	Kundtjänst - meddelanden
+	Mobile optmization

@@ -17,7 +17,7 @@ export default class SearchPage extends React.Component {
         if (currentState.searchQuery !== props.searchQuery) {
             return { searchQuery: props.searchQuery }
         }
-        return null;
+        return null
     }
 
     componentDidMount() {
@@ -31,7 +31,8 @@ export default class SearchPage extends React.Component {
     updateState() {
         axios.get('https://localhost:44323/api/Products/', {
             params: {
-                searchQuery: this.state.searchQuery
+                searchQuery: this.state.searchQuery,
+                category: null
             }
         })
         .then((response) => {

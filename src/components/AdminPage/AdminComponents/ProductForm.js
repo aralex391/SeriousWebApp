@@ -9,13 +9,18 @@ function ProductForm(props) {
 		props.handleSubmit(props.product);
 	};
 	const handleChange = (event) => {
-		props.product[event.target.name] = event.target.value;
+		if (event.target.type === 'number') {
+			props.product[event.target.name] = event.target.valueAsNumber;
+		} else {
+			props.product[event.target.name] = event.target.value;
+        }
 	};
 
     return (
 		<div className='ProductForm'>
 			<form onSubmit={handleSubmit}>
 				<label id='InputField'>
+					<input type='text' placeholder='Category' defaultValue={formProduct.category} onChange={handleChange} name='category' required />
 					<input type='text' placeholder='Name' defaultValue={formProduct.name} onChange={handleChange} name='name' required />
 					<input type='number' placeholder='Price' defaultValue={formProduct.price} onChange={handleChange} name='price' required />
 					<input type='number' placeholder='Stock' defaultValue={formProduct.stock} onChange={handleChange} name='stock' required />
@@ -32,7 +37,7 @@ function ProductHandler(product){
 	if (product.name !== '') {
 		return product;
 	} else {
-		return { 'name': '', 'price': '', 'stock': '', 'description': '' };
+		return { 'category': '', 'name': '', 'price': '', 'stock': '', 'description': '' };
     }
 }
 

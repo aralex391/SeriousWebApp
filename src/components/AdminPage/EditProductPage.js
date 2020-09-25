@@ -25,21 +25,12 @@ export default class EditProductForm extends React.Component {
 	}
 
 	setSearchQuery(query) {
-		if (query !== '') {
-			this.setState({ searchQuery: query })
-		} else {
-			this.setState({ searchQuery: query, renderForm: false })
-        }
+		this.setState({ searchQuery: query, renderForm: false })
 	}
 
 	putToBackend(product) {
-		axios.put('https://localhost:44323/api/Products/', {
-			id: Number(product.id),
-			name: product.name,
-			price: Number(product.price),
-			stock: Number(product.stock),
-			description: product.description
-		}).then((response) => {
+		axios.put('https://localhost:44323/api/Products/', product
+		).then((response) => {
 			console.log(response);
 		}).catch((error) => {
 			console.log(error.response);

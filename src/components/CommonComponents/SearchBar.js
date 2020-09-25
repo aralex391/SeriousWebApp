@@ -6,7 +6,7 @@ function SearchBar(props) {
 
     const [searchQuery, setSearchQuery] = useState('');
 
-    const handleClick = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         props.setSearchQuery(searchQuery);
     }; 
@@ -16,7 +16,7 @@ function SearchBar(props) {
 
     return (
         <div className='SearchBar'>
-            <form onSubmit={handleClick}>
+            <form onSubmit={handleSubmit}>
                 <label id='InputField'>
                     <input type='text' placeholder='Search' value={searchQuery} onChange={handleChange} name='input' />
                 </label>
