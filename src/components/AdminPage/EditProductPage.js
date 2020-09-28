@@ -50,7 +50,7 @@ export default class EditProductForm extends React.Component {
 		return (
 			<div className='EditProductPage'>
 				<SearchBar setSearchQuery={this.setSearchQuery} />
-				<SearchPage searchQuery={this.state.searchQuery} cardFunction={this.setProduct} />
+				<SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.setProduct} />
 				{
 					this.renderForm()
                 }

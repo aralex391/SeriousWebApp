@@ -28,7 +28,7 @@ export default class DeleteProductPage extends React.Component {
         return (
             <div className='DeleteProductPage'>
                 <SearchBar setSearchQuery={this.setSearchQuery} />
-                <SearchPage searchQuery={this.state.searchQuery} cardFunction={this.deleteProduct} />
+                <SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.deleteProduct} />
             </div>
         );
     }

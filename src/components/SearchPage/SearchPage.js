@@ -7,8 +7,10 @@ export default class SearchPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            searchResults: [],
-            searchQuery: ''
+            products: [],
+            categories: [],
+            searchQuery: '',
+            searchType: ''
         }
         this.updateState = this.updateState.bind(this);
     }
@@ -19,11 +21,12 @@ export default class SearchPage extends React.Component {
         }
         return null
     }
-
-    componentDidMount() {
-        this.updateState();
-    }
-
+    
+    componentDidMount() { // If used implement check for if mounted; Use componentWillUnmount()
+        //this.updateState();
+        this.setState({ searchType: this.props.searchType });
+    } 
+    
     componentDidUpdate() {
         this.updateState();
     }
@@ -31,22 +34,32 @@ export default class SearchPage extends React.Component {
     updateState() {
         axios.get('https://localhost:44323/api/Products/', {
             params: {
-                searchQuery: this.state.searchQuery,
-                category: null
+                searchType: this.props.searchType,
+                searchQuery: this.state.searchQuery
             }
-        })
-        .then((response) => {
-            this.setState({ searchResults: response.data })
+        }).then((response) => {
+            this.setState({
+                products: response.data.products,
+                categories: response.data.categories
+            })
         })
     }
 
     render() {
-        const products = this.state.searchResults;
+        const products = this.state.products;
+        const categories = this.state.categories;
         return (
             <div className='SearchPage' >
-                {products.map(product => (
+                {
+                    products.map(product => (
                     <ProductCard key={product.id} product={product} cardFunction={this.props.cardFunction}/>
-                ))}
+                    ))
+                }
+                {
+                    categories.map(category => (
+                        <p>{category}</p>
+                    ))
+                }
             </div >
         );
     }

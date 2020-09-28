@@ -12,7 +12,7 @@ Search results sida
 		returnera två listor? en med taggar, en med products
 	partial search -backend
 	like search? -backend
-	Ändra vy? -frontend
+	Ändra vy på productcard(olika css?) -frontend
 	sortera på -frontend
 		bokstavsordning
 		pris fallande och stigande
