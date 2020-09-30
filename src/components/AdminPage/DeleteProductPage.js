@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import SearchBar from '../CommonComponents/SearchBar'
+import AdminSearchBar from './AdminComponents/AdminSearchBar'
 import SearchPage from '../SearchPage/SearchPage'
 
 export default class DeleteProductPage extends React.Component {
@@ -10,14 +10,14 @@ export default class DeleteProductPage extends React.Component {
 			searchQuery: ''
         }
         this.setSearchQuery = this.setSearchQuery.bind(this);
-        this.deleteProduct = this.deleteProduct.bind(this);
+        this.deleteInBackend = this.deleteInBackend.bind(this);
     }
 
     setSearchQuery(query) {
         this.setState({ searchQuery: query })
     }
 
-    deleteProduct(product) {
+    deleteInBackend(product) {
         var r = window.confirm("Do you want to delete this product?");
         if (r === true) {
             axios.delete('https://localhost:44323/api/Products/' + product.id);
@@ -27,8 +27,8 @@ export default class DeleteProductPage extends React.Component {
     render() {
         return (
             <div className='DeleteProductPage'>
-                <SearchBar setSearchQuery={this.setSearchQuery} />
-                <SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.deleteProduct} />
+                <AdminSearchBar setSearchQuery={this.setSearchQuery} />
+                <SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.deleteInBackend} />
             </div>
         );
     }

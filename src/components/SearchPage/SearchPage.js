@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import ProductCard from './ProductCard'
+import { Link } from "react-router-dom"
 
 export default class SearchPage extends React.Component {
 
@@ -9,10 +10,13 @@ export default class SearchPage extends React.Component {
         this.state = {
             products: [],
             categories: [],
-            searchQuery: '',
-            searchType: ''
+            searchQuery: ''
         }
-        this.updateState = this.updateState.bind(this);
+
+        const CancelToken = axios.CancelToken;
+        this.source = CancelToken.source();
+        this.getFromBackend = this.getFromBackend.bind(this);
+        this.previewBehavior = this.previewBehavior.bind(this);
     }
 
     static getDerivedStateFromProps(props, currentState) {
@@ -23,16 +27,21 @@ export default class SearchPage extends React.Component {
     }
     
     componentDidMount() { // If used implement check for if mounted; Use componentWillUnmount()
-        //this.updateState();
+        //this.getFromBackend();
         this.setState({ searchType: this.props.searchType });
-    } 
-    
-    componentDidUpdate() {
-        this.updateState();
     }
 
-    updateState() {
+    componentWillUnmount() {
+        this.source.cancel('Operation canceled by the user.');
+    }
+    
+    componentDidUpdate() {
+        this.getFromBackend();
+    }
+
+    getFromBackend() {
         axios.get('https://localhost:44323/api/Products/', {
+            cancelToken: this.source.token,
             params: {
                 searchType: this.props.searchType,
                 searchQuery: this.state.searchQuery
@@ -42,12 +51,32 @@ export default class SearchPage extends React.Component {
                 products: response.data.products,
                 categories: response.data.categories
             })
+        }).catch((error) => {
+            if (axios.isCancel(error)) {
+                console.log('Request canceled', error.message);
+            } else {
+                console.log(error);
+            }
         })
+    }
+
+    previewBehavior() {
+        if (this.props.searchType === 'preview') {
+            const categories = this.state.categories;
+            return (
+                <div id='CategoryList'>
+                    {
+                        categories.map(
+                            category => (<Link to={'/category/' + category} >{category}</Link>)
+                        )
+                    }
+                </div>
+            )
+        }
     }
 
     render() {
         const products = this.state.products;
-        const categories = this.state.categories;
         return (
             <div className='SearchPage' >
                 {
@@ -56,10 +85,9 @@ export default class SearchPage extends React.Component {
                     ))
                 }
                 {
-                    categories.map(category => (
-                        <p>{category}</p>
-                    ))
+                    this.previewBehavior()
                 }
+                
             </div >
         );
     }

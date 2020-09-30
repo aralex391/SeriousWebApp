@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import SearchPage from '../SearchPage/SearchPage'
-import SearchBar from '../CommonComponents/SearchBar'
+import AdminSearchBar from './AdminComponents/AdminSearchBar'
 import ProductForm from './AdminComponents/ProductForm'
 import ProductClass from './AdminComponents/ProductClass'
 
@@ -49,7 +49,7 @@ export default class EditProductForm extends React.Component {
 	render() {
 		return (
 			<div className='EditProductPage'>
-				<SearchBar setSearchQuery={this.setSearchQuery} />
+				<AdminSearchBar setSearchQuery={this.setSearchQuery} />
 				<SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.setProduct} />
 				{
 					this.renderForm()

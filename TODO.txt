@@ -34,6 +34,8 @@ Betalsystem(helst en säker sådan)
 
 Kontaktsida
 
+Lista ut hur man hanterar request aborted error
+
 Extras:
 	Kundrecension på produkter
 	Medlemsystem

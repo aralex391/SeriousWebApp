@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import { Route, Switch, BrowserRouter as Router, useParams, useLocation } from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
@@ -9,35 +10,56 @@ import AdminPage from './components/AdminPage/AdminPage';
 export default class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchQuery: ''
-        }
-        this.setSearchQuery = this.setSearchQuery.bind(this);
+
+        this.stringSearch = this.stringSearch.bind(this);
     }
 
-    setSearchQuery(query) {
-        this.setState({ searchQuery: query })
+    categorySearch() {
+        let { category } = useParams();
+        return <SearchPage searchType='category' searchQuery={category} />
     }
 
-    render () {
+    stringSearch() {
+        let query = this.useQuery();
+        return <SearchPage searchType='string' searchQuery={query.get("searchString")} />
+    }
+
+    useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+
+    render() {
+        const browserHistory = Router.browserHistory;
         return (
             <div className="App">
-                <Header setSearchQuery={this.setSearchQuery} />
-                <SearchPage searchType={'preview'} searchQuery={this.state.searchQuery} />
+                <Router history={browserHistory}>
+                    <Header />
+                    <Switch>
+                        <Route path="/category/:category" >
+                            <this.categorySearch />
+                        </Route>
+                        <Route path="/search" >
+                            <this.stringSearch />
+                        </Route>
+                        <Route path="/">
+                            <header className="App-header">
+                                <p>
+                                    Edit <code>src/App.js</code> and save to reload.
+                                    </p>
+                                <a
+                                    className="App-link"
+                                    href="https://reactjs.org"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Learn React
+                                </a>
+                            </header>
+                        </Route>
+                    </Switch>
+                </Router>
                 <AdminPage />
-                <header className="App-header">
-                    <p>
-                        Edit <code>src/App.js</code> and save {this.state.searchQuery} to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
+                
             </div>
         );
     } 
