@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import SearchPage from '../SearchPage/SearchPage'
+import ResultsPage from '../CommonComponents/SearchPage/ResultsPage'
 import AdminSearchBar from './AdminComponents/AdminSearchBar'
 import ProductForm from './AdminComponents/ProductForm'
 import ProductClass from './AdminComponents/ProductClass'
@@ -13,7 +13,7 @@ export default class EditProductForm extends React.Component {
 			product: new ProductClass(),
 			renderForm: false
 		}
-
+		this.buttonName = "Save Changes";
 		this.setSearchQuery = this.setSearchQuery.bind(this);
 		this.setProduct = this.setProduct.bind(this);
 		this.renderForm = this.renderForm.bind(this);
@@ -41,7 +41,7 @@ export default class EditProductForm extends React.Component {
 
 	renderForm() {
 		if (this.state.renderForm) {
-			return <ProductForm handleSubmit={this.putToBackend} product={this.state.product} />
+			return <ProductForm handleSubmit={this.putToBackend} product={this.state.product} buttonName={this.buttonName} />
 		}
 		return null
     }
@@ -50,7 +50,7 @@ export default class EditProductForm extends React.Component {
 		return (
 			<div className='EditProductPage'>
 				<AdminSearchBar setSearchQuery={this.setSearchQuery} />
-				<SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.setProduct} />
+				<ResultsPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.setProduct} />
 				{
 					this.renderForm()
                 }

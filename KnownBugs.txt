@@ -1,0 +1,13 @@
+Admin Page
+	Edit page
+		Save change button should trigger rerender(Maybe solved, doesn't rerender outside of admin)
+		If editform for object is open and func button for other object is clicked
+			The open edit form should close and the form for the other object should open
+If new search is done while a filter is selected, the filter stays selected in memory
+	Possible solution: remember to clear on new search 
+unrecreatable crash?? : If new search is done while a filter is selected backend crashes
+Extra preview get is made after the first string get request.
+	Could be related to emptying of searchbar triggering rerender, triggering a new get
+Category string is sent back as a product name to backend when used with filters.
+	Fix category search compatibility with filtersystem
+If a Filter checkbox is checked, and a new search is done, the checkbox won't work unless clicked twice

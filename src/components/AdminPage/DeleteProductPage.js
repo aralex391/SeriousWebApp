@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import AdminSearchBar from './AdminComponents/AdminSearchBar'
-import SearchPage from '../SearchPage/SearchPage'
+import ResultsPage from '../CommonComponents/SearchPage/ResultsPage'
 
 export default class DeleteProductPage extends React.Component {
 	constructor(props) {
@@ -28,7 +28,7 @@ export default class DeleteProductPage extends React.Component {
         return (
             <div className='DeleteProductPage'>
                 <AdminSearchBar setSearchQuery={this.setSearchQuery} />
-                <SearchPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.deleteInBackend} />
+                <ResultsPage searchType={'string'} searchQuery={this.state.searchQuery} cardFunction={this.deleteInBackend} />
             </div>
         );
     }

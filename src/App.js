@@ -4,8 +4,8 @@ import { Route, Switch, BrowserRouter as Router, useParams, useLocation } from '
 import './App.css';
 
 import Header from './components/Header/Header';
-import SearchPage from './components/SearchPage/SearchPage';
 import AdminPage from './components/AdminPage/AdminPage';
+import FilterPage from './components/FilterPage/FilterPage';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -16,12 +16,12 @@ export default class App extends React.Component {
 
     categorySearch() {
         let { category } = useParams();
-        return <SearchPage searchType='category' searchQuery={category} />
+        return <FilterPage searchType='category' searchQuery={category} />
     }
 
     stringSearch() {
         let query = this.useQuery();
-        return <SearchPage searchType='string' searchQuery={query.get("searchString")} />
+        return <FilterPage searchType='string' searchQuery={query.get("searchString")} />
     }
 
     useQuery() {

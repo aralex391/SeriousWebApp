@@ -10,12 +10,17 @@ function SearchBar(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        history.push('/search/?searchString=' + searchQuery);
-    };//hantera tom sträng
+        if (searchQuery.length > 0) {
+            history.push('/search/?searchString=' + searchQuery);
+            props.setPreviewSearchQuery('');
+        }
+    };
     
     const handleChange = (event) => {
         setSearchQuery(event.target.value);
-        props.setPreviewSearchQuery(event.target.value);
+        if (event.target.value.length > 1) {
+            props.setPreviewSearchQuery(event.target.value);
+        }
     };
 
     return (

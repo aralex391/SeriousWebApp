@@ -9,6 +9,7 @@ export default class AddProductPage extends React.Component {
 		this.state = {
 			product: new ProductClass()
 		}
+		this.buttonName = "Add Product";
 	}
 
 	postToBackend(product) {
@@ -23,7 +24,7 @@ export default class AddProductPage extends React.Component {
 	render() {
 		return (
 			<div className='AddProductName'>
-				<ProductForm handleSubmit={this.postToBackend} product={this.state.product} />
+				<ProductForm handleSubmit={this.postToBackend} product={this.state.product} buttonName={this.buttonName} />
 			</div>
 		)
 	}

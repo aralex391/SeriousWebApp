@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import SearchBar from '../CommonComponents/SearchBar';
-import SearchPage from '../SearchPage/SearchPage';
+import ResultsPage from '../CommonComponents/SearchPage/ResultsPage';
 
 function PreviewSearchContainer(props) {
 
@@ -11,7 +11,7 @@ function PreviewSearchContainer(props) {
         <div className='PreviewSearchContainer'>
             <SearchBar setPreviewSearchQuery={setPreviewSearchQuery} />
             <div id='SearchResults'>
-                <SearchPage searchQuery={previewSearchQuery} searchType='preview' />
+                <ResultsPage searchQuery={previewSearchQuery} searchType='preview' />
             </div>
         </div>
     )

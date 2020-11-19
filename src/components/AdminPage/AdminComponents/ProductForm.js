@@ -26,7 +26,7 @@ function ProductForm(props) {
 					<input type='number' placeholder='Stock' defaultValue={formProduct.stock} onChange={handleChange} name='stock' required />
 					<textarea type='text' placeholder='Description' defaultValue={formProduct.description} onChange={handleChange} name='description' />
 				</label>
-				<input id='SendButton' type='submit' value='Create Product' />
+				<input id='SendButton' type='submit' value={props.buttonName} />
 			</form>
 		</div>
         );

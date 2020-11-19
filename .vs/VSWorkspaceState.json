@@ -6,9 +6,10 @@
     "\\src\\components\\AdminPage",
     "\\src\\components\\AdminPage\\AdminComponents",
     "\\src\\components\\CommonComponents",
-    "\\src\\components\\Header",
-    "\\src\\components\\SearchPage"
+    "\\src\\components\\CommonComponents\\SearchPage",
+    "\\src\\components\\FilterPage",
+    "\\src\\components\\Header"
   ],
-  "SelectedNode": "\\src\\components",
+  "SelectedNode": "\\src\\components\\FilterPage\\FilterPage.js",
   "PreviewInSolutionExplorer": false
 }
