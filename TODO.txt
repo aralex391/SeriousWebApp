@@ -1,6 +1,14 @@
-En scrollbar produktshowcase, med bildlänkar till produkter och en "see more" länk
+Homepage
+	En scrollbar produktshowcase, med bildlänkar till produkter och en "see more" länk
+		Steam eller CDON inspirerat
 
-En banner med news of the day? Också scrollbar
+	En banner med news of the day? Också scrollbar
+		I samma system som produktshowcase
+
+	Navigation bar
+	kanske inspirerat av webhallen.
+
+	genereras av en get?
 
 Adminpage
 	Authentication
@@ -21,11 +29,9 @@ Search results sida
 
 Filtersystem - backend
 	Plocka ut taggar från produkterna och filtrera utefter dem !{get filters} !
-	filtrera efter kategori
 	filtrera efter speciella unika fields
 
 utmaningar om backendfiltrering:
-	ta emot ospecifierad mängd filter
 	Hantera pagination
 		Ha en offset
 
@@ -34,12 +40,9 @@ utmaningar om frontendfiltrering:
 		pris
 	om resultlist <= 20 så hanteras filtrering i frontend
 
-Navigation bar
-	kanske inspirerat av webhallen.
-	genereras av en get?
+Produktsida
 
 "see more" leder till söksidan med applicerade filter
-Cleara sökresultat i preview search när input tas bort
 
 Betalsystem(helst en säker sådan)
 	Checkout system

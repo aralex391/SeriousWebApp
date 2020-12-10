@@ -1,66 +1,65 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Route, Switch, BrowserRouter as Router, useParams, useLocation } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+} from 'react-router-dom';
 import './App.css';
 
 import Header from './components/Header/Header';
 import AdminPage from './components/AdminPage/AdminPage';
 import FilterPage from './components/FilterPage/FilterPage';
+import HomePage from './components/HomePage/HomePage';
 
 export default class App extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.stringSearch = this.stringSearch.bind(this);
-    }
+    this.stringSearch = this.stringSearch.bind(this);
+  }
 
-    categorySearch() {
-        let { category } = useParams();
-        return <FilterPage searchType='category' searchQuery={category} />
-    }
+  categorySearch(props) {
+    let { category } = props.match.params;
+    return (
+      <FilterPage searchType="category" searchQuery={category} />
+    );
+  }
 
-    stringSearch() {
-        let query = this.useQuery();
-        return <FilterPage searchType='string' searchQuery={query.get("searchString")} />
-    }
+  stringSearch(props) {
+    let query = this.useQuery(props.location.search);
+    return (
+      <FilterPage
+        searchType="string"
+        searchQuery={query.get('searchString')}
+      />
+    );
+  }
 
-    useQuery() {
-        return new URLSearchParams(useLocation().search);
-    }
+  useQuery(search) {
+    return new URLSearchParams(search);
+  }
 
-    render() {
-        const browserHistory = Router.browserHistory;
-        return (
-            <div className="App">
-                <Router history={browserHistory}>
-                    <Header />
-                    <Switch>
-                        <Route path="/category/:category" >
-                            <this.categorySearch />
-                        </Route>
-                        <Route path="/search" >
-                            <this.stringSearch />
-                        </Route>
-                        <Route path="/">
-                            <header className="App-header">
-                                <p>
-                                    Edit <code>src/App.js</code> and save to reload.
-                                    </p>
-                                <a
-                                    className="App-link"
-                                    href="https://reactjs.org"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Learn React
-                                </a>
-                            </header>
-                        </Route>
-                    </Switch>
-                </Router>
-                <AdminPage />
-                
-            </div>
-        );
-    } 
+  render() {
+    const browserHistory = Router.browserHistory;
+    return (
+      <div className="App">
+        <Router history={browserHistory}>
+          <Header />
+          <div className="row">
+            <Switch>
+              <Route
+                path="/category/:category"
+                component={this.categorySearch}
+              />
+              <Route path="/search" component={this.stringSearch} />
+              <Route path="/">
+                <HomePage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+        <AdminPage className="row" />
+      </div>
+    );
+  }
 }

@@ -7,14 +7,16 @@ import PreviewSearchContainer from './PreviewSearchContainer';
 import Cart from './Cart';
 
 function Header(props) {
-    return (
-        <div className='Header'>
-            <a id='HomeLink' href='http://localhost:3000/'>Serious App</a>
-            <PreviewSearchContainer />
-            <UserContainer />
-            <Cart />
-        </div>
-        );
+  return (
+    <div className="Header">
+      <a id="HomeLink" href="http://localhost:3000/">
+        Serious App
+      </a>
+      <PreviewSearchContainer />
+      <UserContainer />
+      <Cart />
+    </div>
+  );
 }
 
 export default Header;

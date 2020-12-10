@@ -1,32 +1,40 @@
-.ProductCard{
-    margin: 0.2em;
-    border: solid;
-    border-color: lightgray;
-    display: inline-block;
+.ProductCard {
+  margin: 0.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: solid;
+  border-color: lightgray;
+  background-color: white;
+  text-align: center;
 }
 
-#PriceTag{
-    font-size: larger;
-    display: inline-block;
-    padding-right: 1em;
+#PriceTag {
+  font-size: larger;
 }
 
-#ShoppingContainer{
-    padding: 1em;
+#ShoppingContainer {
+  padding: 1em;
 }
 
-#ProductName{
-    font-size: medium;
-    white-space: pre-wrap;
+#ProductName {
+  font-size: medium;
+  white-space: pre-wrap;
 }
 
 #ProductFunctionButton {
-    font-size: medium;
-    display: inline-block;
-    border-style: solid;
-    border-radius: 5px;
+  font-size: medium;
+  border-style: solid;
+  border-radius: 5px;
 }
 
-#ProductImage{
-    height: 20vmin;   
+#ProductImage {
+  height: 20vmin;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ButtonText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

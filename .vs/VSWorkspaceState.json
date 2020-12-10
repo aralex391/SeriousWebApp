@@ -8,8 +8,10 @@
     "\\src\\components\\CommonComponents",
     "\\src\\components\\CommonComponents\\SearchPage",
     "\\src\\components\\FilterPage",
-    "\\src\\components\\Header"
+    "\\src\\components\\Header",
+    "\\src\\components\\HomePage",
+    "\\src\\components\\HomePage\\HomeComponents"
   ],
-  "SelectedNode": "\\src\\components\\FilterPage\\FilterPage.js",
+  "SelectedNode": "\\src\\components\\AdminPage\\AdminComponents\\ProductForm.js",
   "PreviewInSolutionExplorer": false
 }
